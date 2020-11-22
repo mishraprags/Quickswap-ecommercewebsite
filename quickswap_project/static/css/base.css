@@ -1,0 +1,67 @@
+h1 {
+    color: 	#363535 !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+}
+
+.carousel-caption h4{
+  color: white;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.carousel-caption p{
+  color: white;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+    min-width: 25%;
+  }
+
+.trade-info{
+    font-size:16px;
+}
+
+.trade-map{
+  width: 400px;
+  height: 300px;
+}
+
+.trade-comment{
+  margin:20px;
+}
+
+.wrap-text{
+  word-wrap:break-word;
+}
+
+.button-margin{
+  margin:5px;
+}
+
+.home-carousel-title{
+  margin:auto;
+}
+
+.home-carousel{
+  max-width: 450px;
+  margin: 0 auto
+}
+
+.trade-carousel{
+    margin-top:40px;
+}
+
+.trade-carousel-images{
+  style="max-width: 450px;
+  margin: 0 auto;
+}
+
+.pencil-colour{
+  color:black;
+}

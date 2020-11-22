@@ -1,0 +1,115 @@
+{% extends 'quickswap/base.html' %}
+{% load staticfiles %}
+{% load quickswap_template_tags %}
+
+{% block title_block %}
+    Homepage
+{% endblock %}
+
+{% block body_block %}
+<div class="jumbotron p-4">
+    <div class="container">
+      {% if user.is_authenticated %}
+        <h1 class="jumbotron-heading">Hello {{ user.username }}! Ready to trade?</h1>
+      {% else %}
+          <h1 class="jumbotron-heading">  Welcome to Quickswap!</h1>
+      {% endif %}
+
+    </div>
+</div>
+
+{% if most_recent and most_commented %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-6">
+                <div class="carousel-title col-md-9 home-carousel-title">
+                  <h3 >Most Commented Trades</h3>
+                </div>
+                <div id="carouselMostCommented" class="carousel slide carousel-fade home-carousel" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselMostCommented" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselMostCommented" data-slide-to="1"></li>
+                    <li data-target="#carouselMostCommented" data-slide-to="2"></li>
+                    <li data-target="#carouselMostCommented" data-slide-to="3"></li>
+                    <li data-target="#carouselMostCommented" data-slide-to="4"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    {% for trade in most_commented %}
+                    <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                      <a href="{% url 'quickswap:trade' trade.slug %}">
+                        <img class="d-block w-100 " src="{{ MEDIA_URL }}{{ pictures|getDictValue:trade }}"
+                        alt="{{ trade }}"
+                        width="400"
+                        height="400">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h4>{{ trade }}</h4>
+                          <p class="overflow-ellipsis">Comments: {{ comment_num|getDictValue:trade }}
+                            Description: {{ trade.description }}</p>
+                        </div>
+                      </a>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselMostCommented" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselMostCommented" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-6">
+                <div class="carousel-title col-md-7 home-carousel-title">
+                  <h3>Most Recent Trades</h3>
+                </div>
+                <div id="carouselMostRecent" class="carousel slide carousel-fade home-carousel" data-ride="carousel" style="max-width: 450px; margin: 0 auto">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselMostRecent" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselMostRecent" data-slide-to="1"></li>
+                    <li data-target="#carouselMostRecent" data-slide-to="2"></li>
+                    <li data-target="#carouselMostRecent" data-slide-to="3"></li>
+                    <li data-target="#carouselMostRecent" data-slide-to="4"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    {% for trade in most_recent %}
+                    <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                      <a href="{% url 'quickswap:trade' trade.slug %}">
+                        <img class="d-block w-100 " src="{{ MEDIA_URL }}{{ pictures2|getDictValue:trade }}"
+                        alt="{{ trade }}"
+                        width="400"
+                        height="400">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h4>{{ trade }}</h4>
+                          <p>Comments: {{ comment_num2|getDictValue:trade }}
+                            Description: {{ trade.description }}</p>
+                        </div>
+                      </a>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselMostRecent" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselMostRecent" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+  <h5>
+    There don't seem to be any trades to display. Try refreshing the page! <br />
+    If this problem persists please contact support.
+  </h5>
+{% endif %}
+
+{% endblock %}

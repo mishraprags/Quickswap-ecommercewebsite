@@ -1,0 +1,36 @@
+{% extends 'quickswap/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    About quickswap
+{% endblock %}
+
+{% block body_block %}
+<div class="jumbotron p-4">
+    <div class="container">
+        <h1 class="jumbotron-heading">All About Quickswap</h1>
+    </div>
+</div>
+<div>
+  <p>A Univesity of Glasgow Web Application Development project by:
+  <ul>
+    <li>Lennon Donaghy</li>
+    <li>Diego Drago</li>
+    <li>Michael Griffiths</li>
+    <li>Alistair Hewitt</li>
+    <li>Pragati Mishra</li>
+  </ul>
+
+    Thanks to feather for the pretty icons! <img src="{% static 'images/arrow-right.svg' %}" width="20" height="20">
+    <a href="https://feathericons.com/">
+      <img src="{% static 'images/feather.svg' %}" width="20" height="20">
+    </a>
+    <br/>
+    And to bootstrap for saving time! <img src="{% static 'images/arrow-right.svg' %}" width="20" height="20">
+    <a href="https://getbootstrap.com/">
+      <img src="{% static 'images/bootstrap-solid.svg' %}" width="20" height="20">
+    </a>
+  </p>
+  {% lorem 2 p%}
+</div>
+{% endblock %}
