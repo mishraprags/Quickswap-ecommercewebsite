@@ -1,5 +1,5 @@
 @pragatimishra2506 
- quickswap_project
+quickswap_project
 This repository is for the WAD2 Team Project.
 
 
@@ -88,11 +88,11 @@ Pillow: a fork of PIL (Python Imaging Library)
 Team Members
 The following are the members of Lab 13 (Team E):
 
-      Pragati Mishra
-     Michael Griffiths
-    Diego Drago
-    Alistair Hewitt
-    Lennon Donaghy
+   Pragati Mishra
+   Michael Griffiths
+   Diego Drago
+   Alistair Hewitt
+   Lennon Donaghy
 
 
 
